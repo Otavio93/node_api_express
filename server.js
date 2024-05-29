@@ -1,6 +1,6 @@
-import http from 'http'
+import app from './src/app.js'
 
-const port = 3000
+const PORT = 3000
 
 const routes = {
     "/": "hello world",
@@ -8,17 +8,6 @@ const routes = {
     "/autores": "Rota autores",
 }
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, {
-        // 'accept': 'text/plan'
-        'Content-Type': 'application/json'
-    });
-
-    
-    res.end(JSON.stringify(routes[req.url]));
-    // res.end(routes[req.url]);
-});
-
-server.listen(port, () => {
+app.listen(PORT, () => {
     console.log('executing...')
 });
